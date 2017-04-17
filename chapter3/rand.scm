@@ -1,0 +1,10 @@
+(define modulus   (expt 2 32)) 
+(define multiplier   1664525) 
+(define increment   1013904223) 
+(define  (rand-update x)
+    (modulo  (+  (* multiplier  x)  increment )   modulus ))
+(define  rand  
+  (let ((x 137))
+    (lambda ()  
+    (set! x (rand-update x))
+    x)))

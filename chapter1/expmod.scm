@@ -1,0 +1,12 @@
+(define (expmod base exp m)
+  (cond ((= exp 0) 1)
+        ((even? exp)
+         (let ((g (expmod base (/ exp 2) m)))
+           (if (and (not (= g 1))
+                    (not (= g (- m 1)))
+                    (= (remainder (square g) m) 1))
+             0
+             (remainder (square g) m))))
+        (else (remainder (* base (expmod base (- exp 1) m)) m))))
+(define (even? n)
+  (= (remainder n 2) 0))

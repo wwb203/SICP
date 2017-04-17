@@ -1,0 +1,16 @@
+(define (timed-prime-test n)
+  (newline)
+  (display n)
+  (start-prime-test n (runtime)))
+(define (start-prime-test n start-time)
+  (newline) 
+    (display (search-for-primes 3 n))
+   (newline)
+    (report-prime ( - (runtime) start-time )))
+(define (report-prime elasped-time)
+  (display " *** ") (display elasped-time))
+(define (search-for-primes i n)
+  (if (and (> i n) (prime? i))
+    i
+    (search-for-primes (+ i 2) n)))
+

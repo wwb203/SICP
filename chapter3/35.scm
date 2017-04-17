@@ -1,0 +1,8 @@
+(define (random-in-range low high)
+  (let ((range (- high low)))
+    (+ low (random range))))
+(define (area-pi)
+  (< (+   (square (random 1.0)) (square (random 1.0))) 1)) 
+(define (estimate-pi)
+(* (monte-carlo 100000 area-pi) 4.0))
+(estimate-pi)

@@ -1,0 +1,6 @@
+(load "tool.lisp")
+(define (average-damp f)
+  (lambda (x) (average x (f x))))
+(define (sqrt x)
+  (fixpoint (average-damp (lambda (y) (/ x y)))))
+(+ (sqrt 3) 0.0)
